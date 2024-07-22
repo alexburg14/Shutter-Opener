@@ -15,8 +15,6 @@ def send_low(serial_port):
 
 def get_serial_ports():
     ports = serial.tools.list_ports.comports()
-
-    for port, desc, hwid in sorted(ports):
-            print("{}: {} [{}]".format(port, desc, hwid))
-    return ports
+    for port in ports:
+        print(f"{port.device}: {port.description}")
 
